@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function renderRow(course) {
   return (
@@ -25,4 +26,18 @@ function CourseList(props) {
   );
 }
 
+CourseList.propTypes = {
+  courses: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      authorId: PropTypes.number.isRequired,
+      category: PropTypes.string.isRequired
+    })
+  )
+};
+
+CourseList.defaultProps = {
+  courses: []
+};
 export default CourseList;
